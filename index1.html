@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nahid Al-Asad Pias</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
+  @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #f6f9ff;
+    color: #1a1a1a;
+    scroll-behavior: smooth;
+  }
+
+  header {
+    position: relative;
+    text-align: center;
+    padding: 100px 20px 70px;
+    color: white;
+    overflow: hidden;
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+  }
+  /* Low opacity cover behind content */
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('SAVE_20250630_173645.jpg') no-repeat center/cover;
+    opacity: 0.50;
+    z-index: 0;
+  }
+  .profile-pic {
+    position: left;
+    width: 0px;
+    height: 0px;
+    border-radius: 0%;
+    border: 0px solid white;
+    object-fit: cover;
+    box-shadow: 0 0 0px 
+    margin: 0 auto 0px;
+    z-index: 0;
+    background: transparent;
+  }
+  header h1 {
+    position: relative;
+    font-size: 2.8rem;
+    font-weight: 700;
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+  header p {
+    position: relative;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    z-index: 1;
+    margin-bottom: 14px;
+  }
+  /* Moto / Quote */
+  .moto {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #d3e7ff;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  nav {
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #444;
+    padding: 9px 14px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  nav a:hover {
+    background-color: #0072ff20;
+    color: #0072ff;
+  }
+
+  section {
+    max-width: 920px;
+    margin: 50px auto 70px;
+    padding: 0 20px;
+  }
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 22px;
+    color: #0072ff;
+    border-bottom: 2px solid #0072ff;
+    display: inline-block;
+    padding-bottom: 6px;
+  }
+
+  /* Smart info card style replacing old glass-box */
+  .info-card {
+    background: white;
+    border-radius: 14px;
+    padding: 28px 32px;
+    box-shadow: 0 8px 24px rgb(0 114 255 / 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgb(0 114 255 / 0.3);
+  }
+  .info-card p, .info-card li {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+  }
+  .info-card ul, .info-card ol {
+    padding-left: 22px;
+    margin-top: 8px;
+    color: #444;
+  }
+  .info-card li {
+    margin-bottom: 8px;
+  }
+
+  /* Contact social icons */
+  .social-links {
+    margin-top: 12px;
+  }
+  .social-links a {
+    margin-right: 22px;
+    text-decoration: none;
+    font-size: 1.9rem;
+    vertical-align: middle;
+    color: #0072ff;
+    transition: color 0.3s ease;
+  }
+  .social-links a:hover {
+    color: #004a99;
+  }
+
+  /* Typing effect container */
+  #typing {
+    font-size: 1.1rem;
+    color: #222;
+    min-height: 80px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    border-left: 2px solid #0072ff;
+    padding-left: 8px;
+    animation: blink-caret 1s step-end infinite;
+  }
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+
+  /* Fade effect for typing text */
+  .fade {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .fade.show {
+    opacity: 1;
+  }
+
+  /* Gallery styles */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    gap: 18px;
+  }
+  .gallery img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgb(0 114 255 / 0.12);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 28px rgb(0 114 255 / 0.25);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+    background: #f4f6f8;
+    color: #777;
+    margin-top: 80px;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    header h1 {
+      font-size: 2.2rem;
+    }
+    nav {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .gallery img {
+      height: 100px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img sr alt="" class="profile-pic" />
+  <h1>Nahid Al‑Asad Pias</h1>
+  <p>Student • Mymensingh • SSC Distinction Holder</p>
+  <div class="moto">"Learning today, leading tomorrow."</div>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+  <a href="#bio">Bio</a>
+</nav>
+
+<section id="about" class="info-card">
+  <h2>About Me</h2>
+  <p><strong>Name:</strong> Nahid Al‑Asad Pias</p>
+  <p><strong>Born:</strong> 15 February</p>
+  <p><strong>Residence:</strong> Mymensingh Sadar, Mymensingh</p>
+  <p><strong>Profession:</strong> Student</p>
+</section>
+
+<section id="education" class="info-card">
+  <h2>Education</h2>
+  <ul>
+    <li><strong>Purbadhala JM Govt Pilot High School</strong> — SSC 2024, Class of 108th JM'ian</li>
+    <li><strong>Shahid Syed Nazrul Islam College</strong> — Currently Inter 2nd Year (Science)</li>
+    <li>SSC Result: Distinction & ranked top in Upazila (1221/1300)</li>
+  </ul>
+</section>
+
+<section id="achievements" class="info-card">
+  <h2>Achievements</h2>
+  <ol>
+    <li>Zila Champion — Bangabandhu Srijonshil Medha Onneshon (2023)</li>
+    <li>Divisional Runners-up — Bangabandhu Srijonshil Medha Onneshon (2023)</li>
+    <li>Upazila Champion — Same competition (2022, 2023, 2024)</li>
+    <li>Upazila-level Debater</li>
+    <li>Multiple awards in Science Olympiad</li>
+  </ol>
+</section>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="IMG_20250605_124540_010353.jpg" alt="Gallery Image 1" />
+    <img src="IMG_20250607_210956.jpg" alt="Gallery Image 2" />
+    <img src="SAVE_20250614_214011.jpg" alt="Gallery Image 3" />
+    <img src="SAVE_20250704_243009.jpg" alt="Gallery Image 4" />
+    <img src="Picsart_25-03-23_20-56-03-430.jpg" alt="Gallery Image 5" />
+    <img src="SAVE_20250618_133439.jpg" alt="Gallery Image 6" />
+  </div>
+</section>
+
+<section id="contact" class="info-card">
+  <h2>Contact & Social</h2>
+  <p>📧 Email: <a href="mailto:nahidpias2006@gmail.com" style="color:#0072ff;">nahidpias2006@gmail.com</a></p>
+  <div class="social-links" aria-label="Social Media Links">
+    <a href="https://facebook.com/nahid.pias.33" target="_blank" aria-label="Facebook">
+      <i class='bx bxl-facebook-square'></i>
+    </a>
+    <a href="https://instagram.com/nahid_or_not" target="_blank" aria-label="Instagram">
+      <i class='bx bxl-instagram'></i>
+    </a>
+  </div>
+</section>
+
+<section id="bio" class="info-card">
+  <h2>Short Bio</h2>
+  <p id="typing"></p>
+</section>
+
+<footer>
+  &copy; 2025 Nahid Al‑Asad Pias — All rights reserved.
+</footer>
+
+<script>
+  // Typing effect with fade transition
+  const bioText = `Nahid Al‑Asad Pias is a dedicated science student from Mymensingh with outstanding academic achievements including SSC distinction and upazila top rank. Currently studying in Shahid Syed Nazrul Islam College (Science, Inter 2nd Year). He is an active debater and champion in Bangabandhu Srijonshil Medha Onneshon at Zila and Upazila levels. Passionate about scientific research, he aims to excel in future STEM endeavours.`;
+
+  const typingElement = document.getElementById('typing');
+  let i = 0;
+
+  function typeWriter() {
+    if (i < bioText.length) {
+      typingElement.textContent += bioText.charAt(i);
+      i++;
+      setTimeout(typeWriter, 25);
+    }
+  }
+
+  window.onload = () => {
+    typingElement.classList.add('fade');
+    setTimeout(() => {
+      typingElement.classList.add('show');
+      typeWriter();
+    }, 300);
+  };
+</script>
+
+</body>
+</html>
